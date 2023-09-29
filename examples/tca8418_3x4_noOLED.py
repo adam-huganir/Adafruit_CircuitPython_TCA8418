@@ -44,10 +44,7 @@ while True:
             #  strip keyevent
             event = keyevent & 0x7F
             event -= 1
-            #  figure out row
-            row = event // 10
-            #  figure out column
-            col = event % 10
+            row, col = divmod(event, 10)
             #  print event type first
             if keyevent & 0x80:
                 print("Key down")

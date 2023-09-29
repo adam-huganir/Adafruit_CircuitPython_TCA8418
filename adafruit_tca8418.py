@@ -362,9 +362,7 @@ class DigitalInOut:
         for pull up, or ``None`` for no pull up
         """
 
-        if self._tca.pullup[self._pin]:
-            return digitalio.Pull.UP
-        return None
+        return digitalio.Pull.UP if self._tca.pullup[self._pin] else None
 
     @pull.setter
     def pull(self, val: Optional[Literal[digitalio.Pull.UP]]) -> None:
